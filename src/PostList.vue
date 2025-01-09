@@ -106,7 +106,7 @@ export default defineComponent({
     const fetchPosts = async () => {
       loading.value = true;
       try {
-        const response = await axios.get<Post[]>("http://localhost:8000/posts");
+        const response = await axios.get<Post[]>(`${import.meta.env.VITE_API_URL}/posts`);
         posts.value = response.data;
       } catch (error) {
         console.error("无法加载帖子数据:", error);
